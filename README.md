@@ -4,8 +4,9 @@ Multiple Imputation using Denoising Autoencoders
 
 # DUBBI:
 
-* clean dati: alcuni dataset di partenza (HV) hanno già valori mancanti. Come li gestisco?
+* clean dati: alcuni dataset di partenza (HV) hanno già valori mancanti. Come li gestisco? LEGGI PAPER.
 
-* clean dati: per ora converto stringhe in numeri. per altri tipi di valori numerici, tipo valori negativi?
+* clean dati: fai one hot encoding.
 
 * MNAR uniform e random.
+
