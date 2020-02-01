@@ -4,6 +4,8 @@ Multiple Imputation using Denoising Autoencoders
 
 # DUBBI:
 
+* bug missingness
+
 * split train-test 70-30;
 
 * normalize train and test;
