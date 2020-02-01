@@ -6,6 +6,8 @@ Multiple Imputation using Denoising Autoencoders
 
 * split train-test 70-30;
 
+* normalize train and test;
+
 * early stoppping: if simple moving average of length 5 of the error deviance does not improve (?).
 
 * MICE da implementare?
