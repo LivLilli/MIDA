@@ -4,11 +4,7 @@ Multiple Imputation using Denoising Autoencoders
 
 # DUBBI:
 
-* bug missingness
-
-* split train-test 70-30;
-
-* normalize train and test;
+* normalize or standardize train and test (?);
 
 * target data: perprocessed o no?
 
@@ -16,4 +12,6 @@ Multiple Imputation using Denoising Autoencoders
 
 * MICE da implementare?
 
-* algoritmo multiple impu.
+* algoritmo multiple impu;
+
+* initialize weights from random uniform distribution.
