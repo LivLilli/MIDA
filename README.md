@@ -12,6 +12,4 @@ Multiple Imputation using Denoising Autoencoders
 
 * MICE da implementare?
 
-* algoritmo multiple impu;
-
-* initialize weights from random uniform distribution.
+* algoritmo multiple impu.
