@@ -4,7 +4,7 @@ Multiple Imputation using Denoising Autoencoders
 
 # DUBBI:
 
-* normalize or standardize train and test (?);
+* normalize or standardize train and test (?); at the end, inverse scale?
 
 * target data: pulito ma con gli iniziali na, o pulito con i na riempiti?
 
