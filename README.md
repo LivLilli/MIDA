@@ -6,7 +6,7 @@ Multiple Imputation using Denoising Autoencoders
 
 * normalize or standardize train and test (?);
 
-* target data: perprocessed o no?
+* target data: pulito ma con gli iniziali na, o pulito con i na riempiti?
 
 * early stoppping: if simple moving average of length 5 of the error deviance does not improve (?).
 
