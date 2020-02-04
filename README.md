@@ -12,4 +12,4 @@ Multiple Imputation using Denoising Autoencoders
 
 * MICE da implementare?
 
-* algoritmo multiple impu.
+* algoritmo multiple impu: 5 imputazioni su uno stesso dataset, con diversi pesi inizializzati random -> col seed sono sempre uguali.
