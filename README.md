@@ -11,3 +11,5 @@ Multiple Imputation using Denoising Autoencoders
 * mean rmse simile per df corrotti aventi medesimo df target. 
 
 * 60 df, after modeling, do'nt have na vvalues.
+
+* set seed generale, seed per vettore, seed per split train-test, seed per pesi...
