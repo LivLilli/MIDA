@@ -10,4 +10,4 @@ Multiple Imputation using Denoising Autoencoders
 
 * mean rmse simile per df corrotti aventi medesimo df target. 
 
-* zo df: string feature to fix.
+* 60 df, after modeling, do'nt have na vvalues.
