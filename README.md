@@ -20,3 +20,4 @@ Multiple Imputation using Denoising Autoencoders
 
 * file per tensorboard non sovrascrive: cancella e rigira.
 
+* una volta fatta train_test, aggiusta load_Test
