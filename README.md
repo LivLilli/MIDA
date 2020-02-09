@@ -14,8 +14,9 @@ Multiple Imputation using Denoising Autoencoders
 
 * set seed generale, seed per vettore, seed per split train-test, seed per pesi...
 
-* prova adam: fix della conversione numpy-tensor.
+* prova nadam: fix della conversione numpy-tensor.
 
 * batch size.
 
 * file per tensorboard non sovrascrive: cancella e rigira.
+
