@@ -12,4 +12,4 @@ Multiple Imputation using Denoising Autoencoders
 
 * Nadam: okay?.
 
-* save and load: different results: check if seed for splitting works. 
+* save and load: different results: check if seed for splitting works (do not work).
