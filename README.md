@@ -4,20 +4,12 @@ Multiple Imputation using Denoising Autoencoders
 
 # DUBBI:
 
-* normalize or standardize train and test (?); at the end, inverse scale?
+* prepro: no one-hot encoding
 
 * early stoppping: if simple moving average of length 5 of the error deviance does not improve (?);
 
-* mean rmse simile per df corrotti aventi medesimo df target. 
-
-* 60 df, after modeling, do'nt have na vvalues.
+* 60 df, after modeling, do'nt have na vvalues: is it normal?.
 
 * set seed generale, seed per vettore, seed per split train-test, seed per pesi...
 
-* prova nadam: fix della conversione numpy-tensor.
-
-* batch size.
-
-* file per tensorboard non sovrascrive: cancella e rigira.
-
-* una volta fatta train_test, aggiusta load_Test
+* save and load: different results: check if seed for splitting works (do not work).
