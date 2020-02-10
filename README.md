@@ -12,6 +12,4 @@ Multiple Imputation using Denoising Autoencoders
 
 * set seed generale, seed per vettore, seed per split train-test, seed per pesi...
 
-* Nadam: okay?.
-
 * save and load: different results: check if seed for splitting works (do not work).
