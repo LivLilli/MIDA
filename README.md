@@ -4,6 +4,8 @@ Multiple Imputation using Denoising Autoencoders
 
 # DUBBI:
 
+* prepro: no one-hot encoding
+
 * early stoppping: if simple moving average of length 5 of the error deviance does not improve (?);
 
 * 60 df, after modeling, do'nt have na vvalues: is it normal?.
