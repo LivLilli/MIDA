@@ -4,7 +4,9 @@ Multiple Imputation using Denoising Autoencoders
 
 # DUBBI:
 
-* prepro: no one-hot encoding
+* prepro: no one-hot encoding.
+
+* bc df: id si o no?
 
 * early stoppping: if simple moving average of length 5 of the error deviance does not improve (?);
 
