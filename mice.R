@@ -2,7 +2,7 @@ library(mice)
 library(pracma)
 library(BBmisc)
 library(Metrics)
-set.seed(987)
+
 '
 mice_imputation(df)
 
@@ -16,17 +16,18 @@ mice_imputation = function(input_df){
   # initialize vector of 5 rmse (5 imputations)
   imp_5 = c()
   # normalize input
+  # not yet fillna, because mice wants na values
   input_df = normalize(input_df, method = 'range')
   # mice
   imp = mice(input_df, m = 5, method = 'pmm')
-  # na to zero
+  # na to zero in the input df in order to compute metrics
   input_df[is.na(input_df)] = 0
   for (j in 1:5){
     # imputed df of j imputation
     result_df = complete(imp,j)
     all_rmse = c()
-    result_df = normalize(result_df, method = 'range')
     for (i in names(result_df)){
+      # i-columns (features) for imputed and corrupted df
       pred_vector = result_df[[i]]
       actual_vector = input_df[[i]]
       # rmse of i-feature
@@ -70,7 +71,7 @@ dataset = c('BH', 'BC', 'DN', 'GL', 'HV', 'IS',
             'ON', 'SL', 'SR', 'ST', 'SN', 'SB', 'VC', 'VW', 'ZO')
 # vectors with names of 4 missingness types applied
 methods = c('mcarU', 'mcarR', 'mnarU', 'mnarR')
-# list of df names
+# list of 60 df names
 rows = c()
 i = 1
 for  (df in dataset){
@@ -83,10 +84,11 @@ for  (df in dataset){
 
 # initialize df of results
 result = data.frame(0,0,0)
+# col names
 colnames(result) = c('mean', 'max', 'min')
 for (df_name in rows){
   current_dataset = dataset[i]
-  # opne file
+  # open file
   file = paste('corrupted_datasets/',df_name, '.csv', sep = '')
   df = read.csv(file, header= TRUE, row.names = 1)
   # apply mice
