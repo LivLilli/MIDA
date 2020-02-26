@@ -1,5 +1,16 @@
 library(mlbench)
 
+'
+save_to_csv(df, name)
+
+Inputs:
+  - dataframe;
+  - dataset name.
+
+Returns:
+  - dataframe saved on csv file.
+
+'
 save_to_csv = function(df,name){
   if (file.exists(name)) 
     #Delete file if it exists
@@ -8,6 +19,13 @@ save_to_csv = function(df,name){
   write.csv(df, name)
 }
 
+
+'
+load_datasets()
+
+Returns:
+  - Load all 15 datasets and save them on csv files in data folder.
+'
 load_datasets = function(){
   
   data("BostonHousing")
@@ -42,6 +60,7 @@ load_datasets = function(){
   save_to_csv(Zoo, 'data/zo.csv')
   
 }
+
 
 load_datasets()
 
