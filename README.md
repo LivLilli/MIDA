@@ -2,16 +2,19 @@
 Multiple Imputation using Denoising Autoencoders
 
 
-# DUBBI:
+#   FILES
 
-* prepro: no one-hot encoding.
+* *load_data.R* : R code for downloading datasets.
 
-* bc df: id si o no?
+* *mice.R* : R code for the implementation of the state of the art (MICE).
 
-* early stoppping: if simple moving average of length 5 of the error deviance does not improve (?);
+* *project_2_randoom_change.ipynb* : tf implementation with different random sample of features for each row in MCAR RANDOM (just a trial).
 
-* 60 df, after modeling, do'nt have na vvalues: is it normal?.
+* *project_1.ipynb* : tf implementation using tf RMSE function and automatic gradient computation (compile, fit, evaluate).
 
-* set seed generale, seed per vettore, seed per split train-test, seed per pesi...
+* *project_2.ipynb* : official tf implementation. 
 
-* save and load: different results: check if seed for splitting works (do not work).
+* *tensorboard.ipynb* : tf tensorboard for train and test loss representation. 
+
+
+
