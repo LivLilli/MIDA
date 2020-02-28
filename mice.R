@@ -20,12 +20,13 @@ mice_imputation = function(input_df){
   input_df = normalize(input_df, method = 'range')
   # mice
   imp = mice(input_df, m = 5, method = 'pmm')
-  # na to zero in the input df in order to compute metrics
+  # na to zero in the input df in order to compute metrics rmse
   input_df[is.na(input_df)] = 0
   for (j in 1:5){
     # imputed df of j imputation
     result_df = complete(imp,j)
     all_rmse = c()
+    # for each feature
     for (i in names(result_df)){
       # i-columns (features) for imputed and corrupted df
       pred_vector = result_df[[i]]
@@ -76,7 +77,7 @@ rows = c()
 i = 1
 for  (df in dataset){
   for (missingness in methods){
-    name = paste(df,missingness)
+    name = paste(df,missingness, sep='_')
     rows[i] = name
     i = i+1
   }
