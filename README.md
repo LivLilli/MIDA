@@ -4,7 +4,7 @@ Multiple Imputation using Denoising Autoencoders
 
 #   FILES
 
-* *load_data.R* : R code for downloading datasets.
+* *preprocessing.R* : R code for downloading datasets.
 
 * *mice.R* : R code for the implementation of the state of the art (MICE).
 
