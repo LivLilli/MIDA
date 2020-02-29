@@ -25,7 +25,7 @@ class Autoencoder(tf.keras.Model):
         self.h3 = Dense(n + 3 * self.theta, activation='tanh', kernel_initializer=self.kern_in)
         self.h4 = Dense(n + 2 * self.theta, activation='tanh', kernel_initializer=self.kern_in)
         self.h5 = Dense(n + self.theta, activation='tanh', kernel_initializer=self.kern_in)
-        self.out = Dense(n, activation='sigmoid', kernel_initializer=self.kern_in)
+        self.out = Dense(n, activation='tanh', kernel_initializer=self.kern_in)
 
     def call(self, x, train_drop = True):
         '''
@@ -72,30 +72,6 @@ class model(object):
         # features
         self.n = len(self.df_corrupted.columns)
     
-    def split_data(self):
-        '''
-        Returns:
-        
-            - X_train: 70% of corrupted df used to train model;
-            
-            - X_test: 30% of corrupted df used to evaluate model;
-            
-            - target_train: 70% of target df used to train model;
-            
-            - target_test: 30% of target df used to evaluate model.
-        '''
-        net = self._autoencoder()
-        # scale data
-        scaler = MinMaxScaler()
-        X = scaler.fit_transform(self.df_corrupted.to_numpy())
-        target = scaler.fit_transform(self.df_target.to_numpy())
-        # model can't take in input nan values
-        # so fillna with 0
-        X = np.nan_to_num(X, nan = 0)
-        # split data
-        X_train, X_test, target_train, target_test = model_selection.train_test_split(X, target, train_size = 0.70, test_size = 0.30)
-        return X_train, X_test, target_train, target_test
-    
     def train_test(self, dataset_name, imputation,load = False):
         '''
         Inputs:
@@ -108,7 +84,7 @@ class model(object):
         # nn
         net = self._autoencoder()
         #net.summary()
-        X_train, X_test, target_train, target_test = self.split_data()
+        X_train, X_test, target_train, target_test = self._split_data()
         optimizer = optimizers.Nadam(decay=0.99)
         loss_fn = losses.MeanSquaredError()
         # initialize array of rmse metrics
@@ -195,11 +171,10 @@ class model(object):
                 for i in metrics_array:
                     i.reset_states()
             
-            tf.save_model(net, 'saved_models/%s'%dataset_name +'_%d'%imputation)
-            #net.save('saved_models/%s'%dataset_name +'_%d'%imputation,save_format='tf')
+            net.save_weights('saved_models/%s'%dataset_name +'_%d'%imputation)
         else:
             # test
-            net = tf.saved_model.load('saved_models/%s'%dataset_name +'_%d'%imputation).signatures["serving_default"]
+            net.load_weights('saved_models/%s'%dataset_name +'_%d'%imputation)
             for x_batch_test, y_batch_test in test_dataset:
                 test_logits = net(x_batch_test, False)
                 loss_value = loss_fn(y_batch_test, test_logits)
@@ -217,6 +192,30 @@ class model(object):
                 i.reset_states()
                 
         return sum(test_results)
+    
+    def _split_data(self):
+        '''
+        Returns:
+        
+            - X_train: 70% of corrupted df used to train model;
+            
+            - X_test: 30% of corrupted df used to evaluate model;
+            
+            - target_train: 70% of target df used to train model;
+            
+            - target_test: 30% of target df used to evaluate model.
+        '''
+        net = self._autoencoder()
+        # scale data
+        scaler = MinMaxScaler()
+        X = scaler.fit_transform(self.df_corrupted.to_numpy())
+        target = scaler.fit_transform(self.df_target.to_numpy())
+        # model can't take in input nan values
+        # so fillna with 0
+        X = np.nan_to_num(X, nan = 0)
+        # split data
+        X_train, X_test, target_train, target_test = model_selection.train_test_split(X, target, train_size = 0.70, test_size = 0.30)
+        return X_train, X_test, target_train, target_test
     
     def _autoencoder(self):
         '''

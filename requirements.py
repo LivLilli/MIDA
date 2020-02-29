@@ -21,3 +21,4 @@ import shutil
 # disable logging messages by tf
 logging.disable(logging.WARNING)
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+tf.random.set_seed(987)
