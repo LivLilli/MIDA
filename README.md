@@ -5,9 +5,10 @@ Reference paper: Lovedeep Gondara, Ke Wang (2018). *MIDA: Multiple Imputation us
 
 <a href = 'https://arxiv.org/pdf/1705.02737.pdf'>Click here</a> for the link to the paper.
 
+<div align = "center"><img src="https://cdn.technologynetworks.com/tn/images/thumbs/jpeg/640_360/the-power-of-sparse-data-ai-in-the-pharmaceutical-industry-320377.jpg"></div>
+
 This project consists in the implementation of experiments explained in the above mentioned paper. In particular, the authors built a denoising autoencoder which, given a corrupted dataset, is able to recover the actual one, with the implementation of a multiple imputation. The several experiments are based on different kinds of dataset corruptions and are then compared with results coming from the SOTA (state of the art) method, MICE. 
 
-<div align = "center"><img src="https://cdn.technologynetworks.com/tn/images/thumbs/jpeg/640_360/the-power-of-sparse-data-ai-in-the-pharmaceutical-industry-320377.jpg"></div>
 
 #   Repository Description
 
