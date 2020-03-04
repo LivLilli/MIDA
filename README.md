@@ -1,5 +1,8 @@
 # MIDA
-Multiple Imputation using Denoising Autoencoders
+## Multiple Imputation using Denoising Autoencoders
+
+This project consists in the implementation of experiments explained in the above mentioned paper. In particular, the authors built a denoising autoencoder which, given a corrupted dataset, is able to recover the actual one, with the implementation of a multiple imputation. The several experiments are based on different kinds of dataset corruptions and are then compared with results coming from the SOTA (state of the art) method, MICE. 
+
 
 
 #   Repository Description
@@ -14,7 +17,7 @@ Multiple Imputation using Denoising Autoencoders
 
 >* *preprocessing.py* : Python class for preprocess data.
 
->* *project_2.ipynb* : official tf implementation and report. 
+>* *project.ipynb* : official tf implementation and report. 
 
 >* *requirements.py* : requirements for Python code.
 
